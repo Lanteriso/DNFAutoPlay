@@ -10,12 +10,23 @@ import random
 presslist = {'up':False,'down':False,'left':False,'right':False}
 FindList = {'MiniMapBoss':None,'MiniMapPlayer':None,'MiniMapNone':None}
 global_variable_player = None
+playernameplate = []
 
 def RunBehaviorTree(player, monster):
     global global_variable_player
     global_variable_player = player
+    setplayernameplate(player)
     while 1:
         Tick(player)
+
+def setplayernameplate(player):
+    global playernameplate
+    playernameplate = [['resources/destroyedcastleofdead/0.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']],
+                       ['resources/destroyedcastleofdead/0r.PNG', 0.6, 1.62, None, [[1, player.身高], 'right']],
+                       ['resources/destroyedcastleofdead/0l.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']],
+                        ['resources/destroyedcastleofdead/0ll.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']],
+                        ['resources/destroyedcastleofdead/0rr.PNG', 0.6, 1.62, None, [[1, player.身高], 'right']],
+                       ]
 
 def Tick(player):
     #print(player.状态)
@@ -74,7 +85,7 @@ def 可进入下一个房间(player):
         print('可进入下一个房间')
         FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
         if not FindList['MiniMapNone']:return True
-        FindImg1 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/0.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']],['resources/destroyedcastleofdead/0r.PNG', 0.6, 1.62, None, [[1, player.身高], 'right']],['resources/destroyedcastleofdead/0l.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']], ])
+        FindImg1 = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
         FindImg2 = myfunction.试验查找指定图片([0, 0, 1280, 960], player.currentroomlist)
 
         if FindImg1 and FindImg2:
@@ -120,7 +131,7 @@ def AIMoveTo(PlayLocation,TargetLocation,offset):
 def AIMoveTo2():
     TargetLocation = (1280//2,740)
     while 1:
-        PlayLocation = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/0.PNG', 0.6, 1.62, None, [[70, 260], 'right']],['resources/destroyedcastleofdead/0r.PNG', 0.6, 1.62, None, [[1, 280], 'right']],['resources/destroyedcastleofdead/0l.PNG', 0.6, 1.62, None, [[70, 280], 'right']], ])
+        PlayLocation = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
         if PlayLocation:
             x = TargetLocation[0] - (PlayLocation[5][0][0] + PlayLocation[4][0][0])
             y = TargetLocation[1] - (PlayLocation[5][0][1] + PlayLocation[4][0][1])
@@ -193,8 +204,8 @@ def 战斗进行中(player):
         FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
         FindList['MiniMapBoss'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapBoss.PNG', 0.7, 1, None, [[25, 200], ]], ])
         if FindList['MiniMapNone'] or not FindList['MiniMapBoss']:return True   # 可进入下一个房间，或没看到小地图BOSS 战斗结束
-        FindImg5 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/0.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']],['resources/destroyedcastleofdead/0r.PNG', 0.6, 1.62, None, [[1, player.身高], 'right']],['resources/destroyedcastleofdead/0l.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']], ])
-        FindImg6 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/1.PNG', 0.6, 1.62, None, [[70, 1], 'right']], ['resources/destroyedcastleofdead/2.PNG', 0.7, 1.62, None, [[70, 1], 'right']],['resources/destroyedcastleofdead/sstl.PNG', 0.7, 1, None, [[43, 130], 'right']],['resources/destroyedcastleofdead/hbrwg.PNG', 0.7, 1, None, [[53, 280], 'right']],['resources/destroyedcastleofdead/3.PNG', 0.7, 1, None, [[72, 1], 'right']],])
+        FindImg5 = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
+        FindImg6 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/1.PNG', 0.6, 1.62, None, [[70, 1], 'right']], ['resources/destroyedcastleofdead/1l.PNG', 0.7, 1.62, None, [[70, 1], 'right']],['resources/destroyedcastleofdead/1r.PNG', 0.7, 1.62, None, [[1, 1], 'right']],['resources/destroyedcastleofdead/2.PNG', 0.7, 1.62, None, [[70, 1], 'right']],['resources/destroyedcastleofdead/2l.PNG', 0.7, 1.62, None, [[70, 1], 'right']],['resources/destroyedcastleofdead/2r.PNG', 0.7, 1.62, None, [[1, 1], 'right']],['resources/destroyedcastleofdead/sstl.PNG', 0.7, 1, None, [[43, 130], 'right']],['resources/destroyedcastleofdead/hbrwg.PNG', 0.7, 1, None, [[53, 280], 'right']],['resources/destroyedcastleofdead/3.PNG', 0.7, 1, None, [[72, 1], 'right']],])
         if FindImg5 and FindImg6:
             攻击目标(player,FindImg5,FindImg6,(250,0))
         else:
@@ -223,7 +234,7 @@ def 攻击目标(player,PlayLocation,TargetLocation,offset):
 
 def 因找不到敌人而移动(player):
 
-    FindImg1 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/0.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']],['resources/destroyedcastleofdead/0r.PNG', 0.6, 1.62, None, [[1, player.身高], 'right']],['resources/destroyedcastleofdead/0l.PNG', 0.6, 1.62, None, [[70, player.身高], 'right']], ])
+    FindImg1 = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
     FindImg2 = myfunction.试验查找指定图片([0, 0, 1280, 960], player.currentroomlist2)
     if FindImg1 and FindImg2:
         AIMoveTo(FindImg1,FindImg2,(0,0))
