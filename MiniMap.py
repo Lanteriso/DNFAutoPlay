@@ -90,7 +90,7 @@ def roomfun(x,y):
         BehaviorTreeDNF2.AIMoveTo2()
 def roomfun1(x,y):
     print('【3】 roomfun1',x,y)
-    BehaviorTreeDNF2.AIMoveTo2()
+    BehaviorTreeDNF2.AIMoveTo3()
 
 functions =  [[roomfun1,roomfun1,roomfun1,roomfun],
                 [roomfun1,roomfun1,roomfun1,roomfun1],

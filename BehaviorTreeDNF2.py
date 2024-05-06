@@ -164,6 +164,12 @@ def AIMoveTo2():
                     time.sleep(skills.press_time)
                 return True
 
+def AIMoveTo3():
+    skills = global_variable_player.use_random_available_skill((0, 0))
+    if skills:
+        print('【5】技能', skills.name)
+        pydirectinput.press(skills.name)
+        time.sleep(skills.press_time)
 def presskey(dkey,ukey,x):
     if not presslist[dkey]:
         if presslist[ukey]:
