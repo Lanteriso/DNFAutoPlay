@@ -165,6 +165,7 @@ def AIMoveTo2():
                 return True
 
 def AIMoveTo3():
+    释放按键()
     skills = global_variable_player.use_random_available_skill((0, 0))
     if skills:
         print('【5】技能', skills.name)
