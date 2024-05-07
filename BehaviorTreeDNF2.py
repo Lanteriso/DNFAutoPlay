@@ -251,7 +251,7 @@ def 结算进行中(player):
     player.resetCD()
     pydirectinput.press('Insert')
     time.sleep(3)
-    if random.random() < 0.1:
+    if random.random() < 0.25:
         pydirectinput.press('a')
         time.sleep(0.5)
         pydirectinput.press('space')
