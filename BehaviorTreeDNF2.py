@@ -89,6 +89,7 @@ def 可进入下一个房间(player):
         FindImg2 = myfunction.试验查找指定图片([0, 0, 1280, 960], player.currentroomlist)
 
         if FindImg1 and FindImg2:
+            print('可进入下一个房间2')
             AIMoveTo(FindImg1,FindImg2,(0,0))
         else: # 进太快了，一次进了两个房间
             global_variable_player.状态 = '默认'
@@ -104,6 +105,8 @@ def AIMoveTo(PlayLocation,TargetLocation,offset):
         x -= offset[1]
     else:
         x += offset[1]
+
+
 
     print('【3】',x,y,TargetLocation[0])
 
@@ -125,7 +128,7 @@ def AIMoveTo(PlayLocation,TargetLocation,offset):
             Unpresskey('up')
 
     if abs(x) < 90 and abs(y) < 90:
-
+        print('移动完成1')
         return True
 
 def AIMoveTo2():
@@ -136,6 +139,20 @@ def AIMoveTo2():
             x = TargetLocation[0] - (PlayLocation[5][0][0] + PlayLocation[4][0][0])
             y = TargetLocation[1] - (PlayLocation[5][0][1] + PlayLocation[4][0][1])
             print('【4】移动',x,y)
+
+            if abs(x) < 90 and abs(y) < 90:
+                print('移动完成2')
+                释放按键()
+                ppp = "right" if x > 0 else "left"
+
+                skills = global_variable_player.use_random_available_skill((0, 0))
+                if skills:
+                    print('【5】技能', skills.name)
+                    pydirectinput.press(ppp)
+                    pydirectinput.press(skills.name)
+                    time.sleep(skills.press_time)
+                return True
+
             if x > 0:
                 presskey('right','left',x)
                 if x < 90:
@@ -152,25 +169,38 @@ def AIMoveTo2():
                 presskey('up','down',0)
                 if y > -90:
                     Unpresskey('up')
-            if abs(x) < 90 and abs(y) < 90:
-                释放按键()
-                ppp = "right" if x > 0 else "left"
 
-                skills = global_variable_player.use_random_available_skill((0, 0))
-                if skills:
-                    print('【5】技能', skills.name)
-                    pydirectinput.press(ppp)
-                    pydirectinput.press(skills.name)
-                    time.sleep(skills.press_time)
-                return True
 
-def AIMoveTo3():
-    释放按键()
-    skills = global_variable_player.use_random_available_skill((0, 0))
-    if skills:
-        print('【5】技能', skills.name)
-        pydirectinput.press(skills.name)
-        time.sleep(skills.press_time)
+def AIMoveTo3(PlayLocation,TargetLocation,offset):
+    x = (TargetLocation[5][0][0] + TargetLocation[4][0][0]) - (PlayLocation[5][0][0] + PlayLocation[4][0][0])
+    y = (TargetLocation[5][0][1] + TargetLocation[4][0][1]) - (PlayLocation[5][0][1] + PlayLocation[4][0][1])
+    if x > 0:
+        x -= offset[1]
+    else:
+        x += offset[1]
+
+    if abs(x) < 90 and abs(y) < 90:
+        print('移动完成1')
+        return True
+
+    print('【3】',x,y,TargetLocation[0])
+
+    if x > 0:
+        presskey('right','left',x)
+        if x < 90:
+            Unpresskey('right')
+    else:
+        presskey('left','right',x)
+        if x > -90:
+            Unpresskey('left')
+    if y > 0:
+        presskey('down','up',0)
+        if y < 90:
+            Unpresskey('down')
+    else:
+        presskey('up','down',0)
+        if y > -90:
+            Unpresskey('up')
 def presskey(dkey,ukey,x):
     if not presslist[dkey]:
         if presslist[ukey]:
@@ -236,7 +266,7 @@ def 攻击目标(player,PlayLocation,TargetLocation,offset):
         time.sleep(skills.press_time)
         释放按键()
     else:
-        AIMoveTo(PlayLocation,TargetLocation,(250,0))
+        AIMoveTo3(PlayLocation,TargetLocation,(250,0))
 
 
 def 因找不到敌人而移动(player):
@@ -244,7 +274,7 @@ def 因找不到敌人而移动(player):
     FindImg1 = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
     FindImg2 = myfunction.试验查找指定图片([0, 0, 1280, 960], player.currentroomlist2)
     if FindImg1 and FindImg2:
-        AIMoveTo(FindImg1,FindImg2,(0,0))
+        AIMoveTo3(FindImg1,FindImg2,(0,0))
         攻击目标(player, FindImg1, FindImg2, (250, 0))
 def 结算进行中(player):
 
