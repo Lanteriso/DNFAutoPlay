@@ -90,7 +90,10 @@ def 可进入下一个房间(player):
 
         if FindImg1 and FindImg2:
             print('可进入下一个房间2')
-            AIMoveTo(FindImg1,FindImg2,(0,0))
+            if AIMoveTo(FindImg1,FindImg2,(0,0)):
+                print("重置2？？？？？")
+                global_variable_player.状态 = '默认'
+                return False
         else: # 进太快了，一次进了两个房间
             global_variable_player.状态 = '默认'
             print("重置？？？？？")
