@@ -60,10 +60,12 @@ def 获取玩家当前房间坐标(bossxy,playxy):
     functions[x][y](x,y)
     return roomlist[x][y]
 
-def 获取玩家当前房间坐标1(bossxy,playxy):
+def 获取玩家当前房间坐标1(bossxy,playxy,FindListNone):
     bossroom = (0, 3)
     x, y = ((playxy[5][0][1]+playxy[4][0][1]) - bossxy[5][0][1]) // 18 + bossroom[0], ((playxy[5][0][0]+playxy[4][0][0]) - bossxy[5][0][0]) // 18 + bossroom[1]
     print('【1】获取玩家当前房间坐标1,',x, y)
+    if not FindListNone or (x==3 and y==0):
+        functions[x][y](x, y)
     return roomlist[x][y],roomlist2[x][y]
 
 def 获取玩家当前房间坐标2(bossxy,playxy):
@@ -82,8 +84,7 @@ def 获取玩家当前房间坐标3(bossxy,playxy):
 def 获取玩家当前房间坐标4(bossxy,playxy,FindListNone):
     bossroom = (0, 3)
     x, y = ((playxy[5][0][1]+playxy[4][0][1]) - bossxy[5][0][1]) // 18 + bossroom[0], ((playxy[5][0][0]+playxy[4][0][0]) - bossxy[5][0][0]) // 18 + bossroom[1]
-    if not FindListNone or (x==3 and y==0):
-        functions[x][y](x, y)
+
 
 def roomfun(x,y):
     print('【3】 roomfun',x,y)

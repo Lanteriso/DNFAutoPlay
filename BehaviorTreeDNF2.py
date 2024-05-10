@@ -58,8 +58,7 @@ def GetTarget(player):
     FindImg5 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/zctz.PNG', 0.7, 1, None, [[36, 13], ]], ])
     FindList['MiniMapPlayer'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapPlayer.PNG', 0.7, 1, None, [[0, 0], ]],['resources/destroyedcastleofdead/MiniMapPlayer1.PNG', 0.7, 1, None, [[0, 0], ]],['resources/destroyedcastleofdead/MiniMapPlayer2.PNG', 0.7, 1, None, [[18, 0], ]], ])
     if FindList['MiniMapBoss'] and FindList['MiniMapPlayer']:
-        player.currentroomlist,player.currentroomlist2 = MiniMap.获取玩家当前房间坐标1(FindList['MiniMapBoss'], FindList['MiniMapPlayer'])
-        MiniMap.获取玩家当前房间坐标4(FindList['MiniMapBoss'], FindList['MiniMapPlayer'],FindListNone)
+        player.currentroomlist,player.currentroomlist2 = MiniMap.获取玩家当前房间坐标1(FindList['MiniMapBoss'], FindList['MiniMapPlayer'],FindListNone)
         player.状态 = "副本中"
     elif FindImg5:
         player.状态 = "结算中"
