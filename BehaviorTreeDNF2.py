@@ -60,6 +60,7 @@ def GetTarget(player):
     if FindList['MiniMapBoss'] and FindList['MiniMapPlayer']:
         player.currentroomlist,player.currentroomlist2 = MiniMap.获取玩家当前房间坐标1(FindList['MiniMapBoss'], FindList['MiniMapPlayer'],FindListNone)
         player.状态 = "副本中"
+        player.isend = 0
     elif FindImg5:
         player.状态 = "结算中"
 
@@ -279,20 +280,23 @@ def 因找不到敌人而移动(player):
         AIMoveTo3(FindImg1,FindImg2,(0,0))
         攻击目标(player, FindImg1, FindImg2, (250, 0))
 def 结算进行中(player):
-
-    player.resetCD()
-    pydirectinput.press('Insert')
-    time.sleep(3)
-    if random.random() < 0.25:
-        pydirectinput.press('a')
-        time.sleep(0.5)
-        pydirectinput.press('space')
-        time.sleep(0.5)
-        pydirectinput.press('left')
-        time.sleep(0.5)
-        pydirectinput.press('space')
-        time.sleep(0.5)
-    pydirectinput.press('esc')
-    pydirectinput.press('Delete')
-    time.sleep(5)
-    return True
+    if player.isend > 100:
+        player.isend = 0
+    if player.isend < 1:
+        player.isend += 1
+        player.resetCD()
+        pydirectinput.press('Insert')
+        time.sleep(3)
+        if random.random() < 0.25:
+            pydirectinput.press('a')
+            time.sleep(0.5)
+            pydirectinput.press('space')
+            time.sleep(0.5)
+            pydirectinput.press('left')
+            time.sleep(0.5)
+            pydirectinput.press('space')
+            time.sleep(0.5)
+        pydirectinput.press('esc')
+        pydirectinput.press('Delete')
+        time.sleep(5)
+        return True
