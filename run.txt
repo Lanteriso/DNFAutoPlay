@@ -1,0 +1,5 @@
+git clone https://github.com/Lanteriso/DNFAutoPlay.git
+git pull https://github.com/Lanteriso/DNFAutoPlay.git
+conda activate yolov8
+cd D:\PythonProject\Project\DNFAutoPlay
+python main.py
