@@ -17,7 +17,7 @@ roomlist2 = [[[],[],[],[]],
             [[],[],[],[]],
             [[],[],[],[]]
             ]
-roomlist[3][0] = [['resources/destroyedcastleofdead/door0c.png', 0.75, 1, None, [[1000, 350], 'right']],['resources/destroyedcastleofdead/door0b.png', 0.75, 1, None, [[385, 430], 'right']],['resources/destroyedcastleofdead/door0a.png', 0.75, 1, None, [[391, 249], 'right']],]
+roomlist[3][0] = [['resources/destroyedcastleofdead/door0c.png', 0.75, 1, None, [[1000, 350], 'right']],['resources/destroyedcastleofdead/door0b.png', 0.75, 1, None, [[385, 420], 'right']],['resources/destroyedcastleofdead/door0a.png', 0.75, 1, None, [[391, 239], 'right']],]
 roomlist[2][0] = [['resources/destroyedcastleofdead/rmb.png', 0.75, 1, None, [[22, 21],]],['resources/destroyedcastleofdead/door1b.png', 0.75, 1, None, [[443, 446], 'right']],['resources/destroyedcastleofdead/door1a.png', 0.75, 1, None, [[750, 750], 'right']],]
 roomlist[2][1] = [['resources/destroyedcastleofdead/rmb.png', 0.75, 1, None, [[22, 21],]],['resources/destroyedcastleofdead/door2b.png', 0.75, 1, None, [[-537, 418], 'right']],['resources/destroyedcastleofdead/door2a.png', 0.75, 1, None, [[102, 507], 'right']],]
 roomlist[1][1] = [['resources/destroyedcastleofdead/rmb.png', 0.75, 1, None, [[22, 21],]],['resources/destroyedcastleofdead/door3a.png', 0.75, 1, None, [[90, 490], 'right']],]
