@@ -320,4 +320,5 @@ def 结算进行中(player):
         return True
 
     player.isend += 1
+    pydirectinput.press('x')
     time.sleep(1)
