@@ -293,7 +293,8 @@ def printtime():
     last_time = end_time
 
 def 结算进行中(player):
-    if player.isend > 100:
+    print('结算进行中',player.isend)
+    if player.isend > 10:
         player.isend = 0
     if player.isend < 1:
 
@@ -317,3 +318,6 @@ def 结算进行中(player):
         pydirectinput.press('Delete')
         time.sleep(5)
         return True
+
+    player.isend += 1
+    time.sleep(1)
