@@ -294,9 +294,9 @@ def printtime():
 
 def 结算进行中(player):
     print('结算进行中',player.isend)
-    if player.isend > 10:
-        player.isend = 0
-    if player.isend < 1:
+    if player.isend > 11:
+        exit()
+    if player.isend == 0 or player.isend == 10:
 
         printtime()
 
