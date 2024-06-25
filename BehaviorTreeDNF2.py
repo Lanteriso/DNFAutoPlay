@@ -293,7 +293,7 @@ def printtime():
     last_time = end_time
 
 def 结算进行中(player):
-    print('结算进行中',player.isend)
+    print('结算进行中e',player.isend)
     if player.isend > 11:
         exit()
     if player.isend == 0 or player.isend == 10:
