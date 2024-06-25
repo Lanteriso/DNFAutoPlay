@@ -57,7 +57,7 @@ def GetPlayerRoom(player):
 
 def GetTarget(player):
     print('【0】 GetTarget')
-    FindListNone = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
+    FindListNone = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']],['resources/destroyedcastleofdead/MiniMapNone1.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
     FindList['MiniMapBoss'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapBoss.PNG', 0.7, 1, None, [[25, 200], ]], ])
     FindImg5 = myfunction.试验查找指定图片([0, 0, 1280, 960], [['resources/destroyedcastleofdead/zctz.PNG', 0.7, 1, None, [[36, 13], ]], ])
     FindList['MiniMapPlayer'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapPlayer.PNG', 0.7, 1, None, [[0, 0], ]],['resources/destroyedcastleofdead/MiniMapPlayer1.PNG', 0.7, 1, None, [[0, 0], ]],['resources/destroyedcastleofdead/MiniMapPlayer2.PNG', 0.7, 1, None, [[18, 0], ]], ])
@@ -69,7 +69,7 @@ def GetTarget(player):
         player.状态 = "结算中"
 
 def GetTargetInDungeon(player):
-    FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
+    FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ['resources/destroyedcastleofdead/MiniMapNone1.PNG', 0.7, 1, None, [[0, 0], 'right']],])
     FindList['MiniMapPlayer'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapPlayer.PNG', 0.7, 1, None, [[0, 0],]],['resources/destroyedcastleofdead/MiniMapPlayer1.PNG', 0.7, 1, None, [[0, 0],]], ['resources/destroyedcastleofdead/MiniMapPlayer2.PNG', 0.7, 1, None, [[18, 0],]], ])
     FindImg5 = myfunction.试验查找指定图片([0, 0, 1280, 960],[['resources/destroyedcastleofdead/zctz.PNG', 0.7, 1, None, [[36, 13], ]], ])
     if FindList['MiniMapNone'] and FindList['MiniMapPlayer'] and FindList['MiniMapBoss']:
@@ -89,7 +89,7 @@ def 副本中(player):
 def 可进入下一个房间(player):
     while 1:
         print('可进入下一个房间')
-        FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
+        FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ['resources/destroyedcastleofdead/MiniMapNone1.PNG', 0.7, 1, None, [[0, 0], 'right']],])
         if not FindList['MiniMapNone']:return True
         FindImg1 = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
         FindImg2 = myfunction.试验查找指定图片([0, 0, 1280, 960], player.currentroomlist)
@@ -247,7 +247,7 @@ def GetCurrentRoom(player):
 def 战斗进行中(player):
     while 1:
         print('战斗进行中')
-        FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ])
+        FindList['MiniMapNone'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapNone.PNG', 0.7, 1, None, [[0, 0], 'right']], ['resources/destroyedcastleofdead/MiniMapNone1.PNG', 0.7, 1, None, [[0, 0], 'right']],])
         FindList['MiniMapBoss'] = myfunction.试验查找指定图片([1180, 30, 100, 100], [['resources/destroyedcastleofdead/MiniMapBoss.PNG', 0.7, 1, None, [[25, 200], ]], ])
         if FindList['MiniMapNone'] or not FindList['MiniMapBoss']:return True   # 可进入下一个房间，或没看到小地图BOSS 战斗结束
         FindImg5 = myfunction.试验查找指定图片([0, 0, 1280, 960], playernameplate)
